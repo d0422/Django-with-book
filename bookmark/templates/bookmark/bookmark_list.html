@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Bookmark List</title>
+</head>
+<body>
+<div id="content">
+    <h1>
+        Bookmark List
+    </h1>
+    <ul>
+        <!--object_list는 클래스형 뷰에서 넘겨주는 변수 -->
+        {% for bookmark in object_list%}
+        <li><a href="{% url 'detail' bookmark.id %}">{{ bookmark}}</a></li>
+        <!--detail은 pk변수이며, id값에 해당하는 url이 연결되게 출력-->
+        <!--{{bookmark}}는 해당 객체의 str객체를 print함-->
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
